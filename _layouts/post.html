@@ -1,0 +1,20 @@
+---
+layout: default
+---
+{%- assign _posts = site.posts | sort: 'date' | reverse | where: "category","blog"  -%}
+{%- include header_2.html scrolly_nav=_posts -%}
+
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h1>{{- page.title -}}</h1>
+				<p>{% if page.author %}{{ page.author }}, {% endif %}{{- page.date | date_to_long_string -}}</p>
+				<hr>
+			</header>
+	    {{- content -}}
+	  </div>
+	</article>
+</div>
